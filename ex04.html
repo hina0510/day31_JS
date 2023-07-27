@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<style type="text/css">
+		img{width: 100px;height: 100px}
+	</style>
+	<script type="text/javascript">
+		var flag=true;
+		const chimg01 =()=>{
+			let img = document.getElementById("img01");
+			let msg="";
+			if(flag){
+				msg="최근상품02.jpg";
+			}else{
+				msg="최근상품01.jpg";
+			}
+			flag=!flag;
+			img.src=msg;
+		}
+		const chimg02=()=>{
+			const h = document.getElementById("h");
+			h.style.color ="red";
+			h.style.background ="yellow";
+			h.style.textAlign ="center";//test-align은 textAlign표기
+		}
+	</script>
+</head>
+<body>
+	<img id="img01" src="최근상품01.jpg" onclick="chimg01()"><br>
+	<img id="img02" src="최근상품01.jpg" onclick="chimg02()"><br>
+	<h3 id="h">test</h3>
+</body>
+</html>

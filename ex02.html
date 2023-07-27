@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<style type="text/css">
+		#h3{color: red;}
+	</style>
+	<script type="text/javascript">
+		const innerTest=()=>{
+			const txt = document.getElementById("text");
+			console.log(txt);//msg태그 출력
+			let msg = "<h3 id='h3'>내용 바꾸기</h3>";
+			//txt.innerHTML=msg; //msg태그의 내용바꾸기 출력
+			txt.innerText=msg;//msg태그 출력
+		}
+	</script>
+</head>
+<body>
+	<label id="text">텍스트 값</label><hr>
+	<button type="button" onclick="innerTest()">클릭</button>
+	
+</body>
+</html>

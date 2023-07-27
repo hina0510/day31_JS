@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var DB = [
+			{id : "aaa", name : "홍길동", age : 20},
+			{id : "bbb", name : "김개똥", age : 30},
+			{id : "ccc", name : "고길똥", age : 40},
+		];
+		const allMem = () =>{
+			const tb = document.querySelector("#tb");
+			let msg = "<table border='1'>";
+			msg += "<tr><th>아이디</th>";
+			msg += "<th>이름</th>";
+			msg += "<th>나이</th></tr>";
+			for(var i=0;i<DB.length;i++){
+				msg += "<tr>";
+				msg += `<td>${DB[i].id}</td>
+				<td onclick="memInfo('${DB[i].id}')">${DB[i].name}</td>
+				<td>${DB[i].age}</td>`;
+				msg += "</tr>";
+			}
+			msg += "</table>";
+			tb.innerHTML=msg;
+		}
+		const showMem = () =>{
+			const id = document.querySelector("#id01");
+			const result = DB.filter((value)=>id.value==value.id);
+			let msg = "<table border='1'>";
+			msg += "<tr><th>아이디</th>";
+			msg += "<th>이름</th>";
+			msg += "<th>나이</th></tr>";
+			msg += "<tr>";
+			msg += `<td>${result[0].id}</td>`;
+			msg += `<td>${result[0]["name"]}</td>`;
+			msg += `<td>${result[0].age}</td>`;
+			msg += "</tr>";
+			msg += "</table>";
+			tb.innerHTML=msg;
+		}
+		const delMem = () =>{
+			const id = document.querySelector("#id02");
+			const result = DB.filter((value)=>id.value==value.id);
+			for(var i=0;i<DB.length;i++){
+				if(DB[i]==result[0]){
+					DB.splice(i,1);
+				}
+			}
+			let msg = "<table border='1'>";
+			msg += "<tr><th>아이디</th>";
+			msg += "<th>이름</th>";
+			msg += "<th>나이</th></tr>";
+			for(const user of DB){
+				msg += "<tr>";
+				msg += `<td>${user.id}</td>`;
+				msg += `<td>${user["name"]}</td>`;
+				msg += `<td>${user.age}</td>`;
+				msg += "</tr>";
+			}
+			msg += "</table>";
+			tb.innerHTML=msg;
+		}
+		const memInfo = (id)=>{
+			const result = DB.filter((value)=>(id===value.id)?DB:"")[0];
+			let msg = `아이디 : ${result.id}<br>`;
+			msg += `이름 : ${result.name}<br>`;
+			msg += `나이 : ${result.age}<br>`;
+			tb.innerHTML=msg;
+		}
+	</script>
+	<div>
+		<h3 id="tb">목록을 보여줍니다</h3><hr>
+		<input type="button" value="모든 회원 보기" onclick="allMem()"><hr>
+	</div>
+	<div>
+		<input type="text" placeholder="input id" id="id01"><br>
+		<input type="button" value="특정 회원 조회" onclick="showMem()"><hr>
+	</div>
+	<div>
+		<input type="text" placeholder="input id" id="id02"><br>
+		<input type="button" value="특정 회원 삭제" onclick="delMem()">
+	</div>
+</body>
+</html>

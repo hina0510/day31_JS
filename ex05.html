@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<style type="text/css">
+		img {width: 100px; height: 100px;}
+		.button{background: pink;text-align: center;width: 300px; }
+	</style>
+	<script type="text/javascript">
+		x=1;
+		const pastPic=()=>{
+			let img=document.getElementById("img01");
+			let msg="";
+			x--;
+			if(x==0){x=8;}
+			msg="최근상품0"+x+".jpg";
+			img.src=msg;
+		}
+		const nextPic=()=>{
+			let img=document.getElementById("img01");
+			let msg="";
+			x++;
+			if(x==9){x=1;}
+			msg="최근상품0"+x+".jpg";
+			img.src=msg;
+		}
+		const myMouseover=()=>{
+			let img=document.getElementById("img02");
+			console.log(img);
+			let msg = "<button>선택</button>";
+		}
+	</script>
+</head>
+<body>
+	<img id="img01" src="최근상품01.jpg" ><br>
+	<h3 class="button">
+	<input type="button" value="이전사진" onclick="pastPic()">
+	<input type="button" value="다음사진" onclick="nextPic()">
+	</h3>
+	<hr>
+	<div onmouseover="myMouseover()">
+		<table border="1">
+			<tr>
+				<td><img id="img02" src="최근상품01.jpg"></td>
+				<td><img id="img02" src="최근상품02.jpg"></td>
+				<td><img id="img02" src="최근상품03.jpg"></td>
+				<td><img id="img02" src="최근상품04.jpg"></td>
+			</tr>
+			<tr>
+				<td><img id="img02" src="최근상품05.jpg"></td>
+				<td><img id="img02" src="최근상품06.jpg"></td>
+				<td><img id="img02" src="최근상품07.jpg"></td>
+				<td><img id="img02" src="최근상품08.jpg"></td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>
